@@ -1,91 +1,14 @@
 package practica2;
-import java.util.Scanner;
+
+import static practica2.Metodes.*;
 
 public class Practica2 {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        double res = 0;
-        String operacion;
-        boolean comprobar = false;
 
         do {
 
-            String numero1;
-            do {
-                System.out.print("Introdueix el primer numero amb el que vols operar: ");
-                numero1 = sc.nextLine();
-            } while (!numero1.matches("[+-]?[\\d]*[.]?[\\d]+"));
-            double nume1 = Double.parseDouble(numero1);
-            double n1 = new Double(numero1);
-            
-            do {
-                System.out.println("\nSelecciona l'operació desitjada:"
-                        + "\n + => Sumar"
-                        + "\n - => Restar"
-                        + "\n x => Multiplicar"
-                        + "\n / => Dividir"
-                        + "\n * => Potencia"
-                        + "\n % => Residu");
-                System.out.print("> ");
-                operacion = sc.nextLine();
-                if (operacion.equals("+") || operacion.equals("-") || operacion.equals("x")
-                        || operacion.equals("X") || operacion.equals("/") || operacion.equals("%")
-                        || operacion.equals("*")) {
-                    comprobar = true;
-                } else {
-                    comprobar = false;
-                }
-            } while (comprobar != true);
-
-            String numero2;
-            do {
-                System.out.print("\nIntrodueix el primer numero amb el que vols operar: ");
-                numero2 = sc.nextLine();
-            } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
-            double nume2 = Double.parseDouble(numero2);
-            double n2 = new Double(numero2);
-
-            do {
-                comprobar = true;
-                switch (operacion) {
-                    case "+":
-                        res = n1 + n2;
-                        break;
-                    case "-":
-                        res = n1 - n2;
-                        break;
-                    case "x":
-                        res = n1 * n2;
-                        break;
-                    case "/":
-                        while (n2 == 0) {
-                            do {
-                                System.err.println(" Al denominador hi ha un zero \n"
-                                        + "per a  evitar errors coloca un altre valor.");
-                                numero2 = sc.nextLine();
-                            } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
-                            nume2 = Double.parseDouble(numero2);
-                            n2 = new Double(numero2);
-                        }
-                        res = n1 / n2;
-                        break;
-                    case "*":
-                        res = Math.pow(n1, n2);
-                        break;
-                    case "%":
-                        while (n2 == 0) {
-                            do {
-                                System.err.println(" Al denominador hi ha un zero \n"
-                                        + "per a  evitar errors coloca un altre valor.");
-                                numero2 = sc.nextLine();
-                            } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
-                            nume2 = Double.parseDouble(numero2);
-                            n2 = new Double(numero2);
-                        }
-                        res = n1 % n2;
-                        break;
-                }
-            } while (comprobar != true);
+            menuOperacions();
 
             System.out.println("(" + numero1 + ") " + operacion + " (" + numero2 + ")" + " = " + res);
             System.out.println("\n Vols continuar operant? \n");
@@ -105,6 +28,7 @@ public class Practica2 {
                         comprobar = false;
                 }
             } while (comprobar != true);
+
         } while (operacion.equalsIgnoreCase("s"));
     }
 }
