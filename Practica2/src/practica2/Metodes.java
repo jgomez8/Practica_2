@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Metodes {
 
     static Scanner sc = new Scanner(System.in);
-    static int numero1;
-    static int numero2;
+    static double numero1;
+    static double numero2;
     static double res = 0;
     static String operacion = "";
     static boolean comprobar = false;
@@ -17,7 +17,7 @@ public class Metodes {
             System.out.print("Introdueix el primer numero amb el que vols operar: ");
             numero1 = sc.nextLine();
         } while (!numero1.matches("[+-]?[\\d]*[.]?[\\d]+"));
-        double nume1 = Double.parseDouble(numero1);
+        Metodes.numero1 = Double.parseDouble(numero1);
         double n1 = new Double(numero1);
 
         do {
@@ -44,7 +44,7 @@ public class Metodes {
             System.out.print("\nIntrodueix el primer numero amb el que vols operar: ");
             numero2 = sc.nextLine();
         } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
-        double nume2 = Double.parseDouble(numero2);
+        Metodes.numero2 = Double.parseDouble(numero2);
         double n2 = new Double(numero2);
 
         do {
@@ -66,7 +66,7 @@ public class Metodes {
                                     + "per a  evitar errors coloca un altre valor.");
                             numero2 = sc.nextLine();
                         } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
-                        nume2 = Double.parseDouble(numero2);
+                        Metodes.numero2 = Double.parseDouble(numero2);
                         n2 = new Double(numero2);
                     }
                     res = n1 / n2;
@@ -81,7 +81,7 @@ public class Metodes {
                                     + "per a  evitar errors coloca un altre valor.");
                             numero2 = sc.nextLine();
                         } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
-                        nume2 = Double.parseDouble(numero2);
+                        Metodes.numero2 = Double.parseDouble(numero2);
                         n2 = new Double(numero2);
                     }
                     res = n1 % n2;
